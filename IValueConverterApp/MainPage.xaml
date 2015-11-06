@@ -1,0 +1,27 @@
+﻿<Page x:Class="IValueConverterApp.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:IValueConverterApp"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+    <Page.Resources>
+        <local:ImageTextConvert x:Key="ImageTextConvert" />
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <Button x:Name="StoplightButton"
+                    Width="100"
+                    Height="200"
+                    Click="StoplightButton_Click">
+                <Button.Background>
+                    <ImageBrush x:Name="IB" ImageSource="{Binding Text, Converter={StaticResource ImageTextConvert}, ElementName=tb, Mode=TwoWay}" />
+                </Button.Background>
+            </Button>
+            <TextBox x:Name="tb" />
+            <Image x:Name="img" />
+            <Button Click="Button_Click">Click</Button>
+        </StackPanel>
+    </Grid>
+</Page>
